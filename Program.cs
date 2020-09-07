@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace CashOut
 {
-    //TODO: Implement abstract class called items
-    //brand
-    //price
-    //stock
-    //func: that reduces stock by the amount purchased (Remember to check for empty)
-    //func: that increases stock by the amount increased and returns the new stock amount 
-    //Func: return total amount
+    
     abstract class items
     {
+        //brand
+        //price
+        //stock
         public string brand;
         public int price = 0, stock = 0;
 
@@ -24,7 +21,7 @@ namespace CashOut
             Console.Write("Enter brand name:");
             brand = Convert.ToString(Console.ReadLine());
         }
-
+        //func: that increases stock by the amount increased and returns the new stock amount 
         public void increase_stoct()
         {
 
@@ -36,6 +33,7 @@ namespace CashOut
             Console.ReadLine();
         }
 
+        //func: that reduces stock by the amount purchased (Remember to check for empty)
         public void decrease_stock()
         {
             if (stock == 0)
@@ -54,13 +52,18 @@ namespace CashOut
 
 
         }
-
+        //Func: return total amount
         public void get_stock()
         {
             Console.WriteLine($"Stock={stock}\n");
+            Console.WriteLine($"Stock={price}\n");
             Console.WriteLine($"Brand Name={brand}\n");
         }
     };
+    
+    
+    
+
     //Cigarette brand
     //Cigarette brand
 
@@ -80,12 +83,17 @@ namespace CashOut
     {
         static void Main()
         {
+            //Create object of ciggerate
             Cigarette cig = new Cigarette();
+            //Create object of Bevrage
             Beverage bev = new Beverage();
+            //Create object of Chips
             Chips chips = new Chips();
+            //Create object of Oil
             Oil oil = new Oil();
             for(; ; )
             {
+                //Buy item: Item type 1 for Cigarette, 2 for Beverage, 3 for CHIPS and 4 for Oil
                 int ch;
                 Console.WriteLine("          Welcome to Stock Management System");
                 Console.WriteLine("         -------------------------------------\n\n");
@@ -96,6 +104,8 @@ namespace CashOut
                 Console.Write("Enter choice: ");
                 ch = int.Parse(Console.ReadLine());
 
+
+                //Buy item or add to stock for 1
                 if (ch == 1)
                 {
                     ch = 0;
@@ -105,7 +115,8 @@ namespace CashOut
                     Console.WriteLine("3-View All Info\n");
                     Console.Write("Enter choice: ");
                     ch = int.Parse(Console.ReadLine());
-                    if(ch == 1)
+                    //1-> Brand of cigg, quanitity, total amount
+                    if (ch == 1)
                     {
                         ch = 0;
                         Console.Clear();
@@ -120,13 +131,15 @@ namespace CashOut
                         Console.Clear();
                         cig.decrease_stock();
                         Console.Clear();
+
                     }
-                    else if(ch == 3)
+                    //Brand of cigg, quanitity, return new number of stocks
+                    else if (ch == 3)
                     {
                         ch = 0;
                         Console.Clear();
                         cig.get_stock();
-                        Console.Clear();
+                        
                     }
                     else
                     {
@@ -135,7 +148,8 @@ namespace CashOut
                         Console.WriteLine("\nPress any key to return to main menu\n");
                     }
                 }
-                else if(ch == 2)
+                //add to stock item: 1 for Cigarette, 2 for Beverage, 3 for CHIPS and 4 for Oil
+                else if (ch == 2)
                 {
                     ch = 0;
                     Console.Clear();
@@ -144,6 +158,7 @@ namespace CashOut
                     Console.WriteLine("3-View All Info\n");
                     Console.Write("Enter choice: ");
                     ch = int.Parse(Console.ReadLine());
+                    //2-> Brand of Beverage, quanitity, total amount
                     if (ch == 1)
                     {
                         ch = 0;
@@ -160,12 +175,13 @@ namespace CashOut
                         bev.decrease_stock();
                         Console.Clear();
                     }
+                    //Brand of beverage, quanitity, return new number of stocks
                     else if (ch == 3)
                     {
                         ch = 0;
                         Console.Clear();
                         bev.get_stock();
-                        Console.Clear();
+                        
                     }
                     else
                     {
@@ -183,6 +199,7 @@ namespace CashOut
                     Console.WriteLine("3-View All Info\n");
                     Console.Write("Enter choice: ");
                     ch = int.Parse(Console.ReadLine());
+                    //3-> Brand of Chips, quanitity, total amount
                     if (ch == 1)
                     {
                         ch = 0;
@@ -199,12 +216,13 @@ namespace CashOut
                         chips.decrease_stock();
                         Console.Clear();
                     }
+                    //Brand of Chips, quanitity, return new number of stocks
                     else if (ch == 3)
                     {
                         ch = 0;
                         Console.Clear();
                         chips.get_stock();
-                        Console.Clear();
+                        
                     }
                     else
                     {
@@ -222,6 +240,7 @@ namespace CashOut
                     Console.WriteLine("3-View All Info\n");
                     Console.Write("Enter choice: ");
                     ch = int.Parse(Console.ReadLine());
+                    //3-> Brand of Oil, quanitity, total amount
                     if (ch == 1)
                     {
                         ch = 0;
@@ -243,9 +262,9 @@ namespace CashOut
                         ch = 0;
                         Console.Clear();
                         oil.get_stock();
-                        Console.Clear();
+                        
                     }
-                    else if(ch == 4)
+                    else
                     {
                         Console.Clear();
                         Console.WriteLine("\nInvalid Option Entered!!\n");
@@ -257,22 +276,7 @@ namespace CashOut
                     Console.Clear();
                     Console.WriteLine("\nInvalid Option Entered!!\n");
                    
-                }
-                //TODO: Create a menu that has the following:
-                //Buy item or add to stock for 1 
-                //Buy item: Item type 1 for Cigarette, 2 for Beverage, 3 for CHIPS and 4 for Oil
-                //Create object of ciggerate
-                //1-> Brand of cigg, quanitity, total amount
-                //Create object of Bevrage
-                //2-> Brand of Beverage, quanitity, total amount
-                //Create object of Chips
-                //3-> Brand of Chips, quanitity, total amount
-                //Create object of Oil
-                //3-> Brand of Oil, quanitity, total amount
-                //add to stock item: 1 for Cigarette, 2 for Beverage, 3 for CHIPS and 4 for Oil
-                //Brand of cigg, quanitity, return new number of stocks
-                //Brand of beverage, quanitity, return new number of stocks
-                //Brand of Chips, quanitity, return new number of stocks
+                }              
             }
         }
 
